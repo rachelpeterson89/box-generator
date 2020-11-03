@@ -9,10 +9,6 @@ function App() {
 
   const [ currentColor, setCurrentColor ] = useState([]);
 
-  // const newBox = (props) => {
-  //   setCurrentBoxes([...currentBoxes, props]);
-  // }
-
   const changeColor = ( newColor ) => {
     setCurrentColor([ ...currentColor, newColor ]);
   }
@@ -20,8 +16,8 @@ function App() {
   return (
     <div className="body">
       <div className="text-light">
-        <BoxForm onNewColor={ changeColor }/>
-        <BoxDisplay color={ currentColor }/>
+        <BoxForm onNewBox={ changeColor }/>
+        <BoxDisplay box={ currentColor }/>
       </div>
     </div>
 

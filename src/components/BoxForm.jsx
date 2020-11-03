@@ -3,12 +3,16 @@ import React, { useState } from 'react';
 const BoxForm = (props) => {
     
     const [ currentColor, setCurrentColor ] = useState("");
+    const [ currentHeight, setCurrentHeight ] = useState("");
 
     const handleSubmit = (e) => { 
         e.preventDefault();
 
-        props.onNewColor( currentColor );
+        const newBox = { color: currentColor, height: currentHeight };
+
+        props.onNewBox( newBox );
         setCurrentColor("");
+        setCurrentHeight("");
     };
 
     return (
@@ -20,17 +24,19 @@ const BoxForm = (props) => {
                     className="form-control m-2 w-50"
                     type="text"
                     placeholder="Enter color here"
+                    name="color"
                     onChange = { (e) => setCurrentColor(e.target.value) }
                     value={ currentColor }
                 ></input>
 
-                {/* <input 
+                <input 
                     className="form-control m-2 w-50"
                     type="number"
-                    placeholder="Enter height here"
+                    placeholder="Enter box-size here"
+                    name="height"
                     onChange = { (e) => setCurrentHeight(e.target.value) }
                     value={ currentHeight }
-                ></input> */}
+                ></input>
 
                 <input type="submit" className="m-2 btn btn-secondary" value="Submit"/>
             </div>
